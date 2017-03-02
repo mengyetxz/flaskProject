@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Billing Management Console</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="cache-control" content="no-cache" />
+    <meta http-equiv="pragma" content="no-cache" />
+
+<meta name="awsc-mezz" content="1">
+<meta id="awsc-mezz-region" name="awsc-mezz-region" content="cn-north-1">
+<meta id="awsc-mezz-locale" name="awsc-mezz-locale" content="zh_CN">
+<meta id="awsc-mezz-fb" name="awsc-mezz-fb" content="0">
+<meta id="awsc-signin-endpoint" name="awsc-signin-endpoint" content="FIXME-BEFORE-SWITCHROLE-LAUNCH">
+
+<style type="text/css">
+html, body, #b, #cc {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+html, body {
+  height: 100%;
+  width: 100%;
+}
+
+#h {
+  overflow: hidden;
+}
+
+#b {
+  position: relative;
+  min-height: 100%;
+}
+
+#cc {
+  padding-bottom: 39px;
+}
+
+#f {
+  width: 100%;
+  background-color: #fff;
+  position: absolute;
+  bottom: 0;
+}
+
+#f #consoleNavFooter #footer-content {
+  padding: 10px 0;
+  margin: 0 30px;
+  border-top: 1px solid #ccc;
+}
+
+#consoleNavFooter {
+  margin-top: 9px;
+}
+
+#h #awsgnav #nav-menubar {
+  margin: 0 0 15px;
+}
+
+</style>
+
+<link rel="stylesheet" type="text/css" href="https://s3.cn-north-1.amazonaws.com.cn/awsc-nav-assets-cn-north-1-prod/css/menu-2kjdfskljflksdfjk/globalnav-0c2aea91c87c848cde61a02d8e5c1ba58cef9f92.gz.css" charset="utf-8"/>
+
+<script type="text/javascript" src="https://s3.cn-north-1.amazonaws.com.cn/awsc-nav-assets-cn-north-1-prod/js/mezz-35gbnwov975sjdhcbsf/mezz-c1bb141a5bc1fe98b5d7adba2db96d5ad1bed5fb.gz.js" charset="utf-8"></script>
+
+        <meta name="awsc-lang"
+            content="zh">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- If a webpage contains numbers that can be interpreted as phone numbers, iOS by default
+        adds Phone Links to it. This is to turn off telephone number detection in iOS Safari. -->
+        <meta name="format-detection" content="telephone=no" />
+
+<link type="text/css" rel="stylesheet" href="https://s3.cn-north-1.amazonaws.com.cn/cdn-prod/css/billingconsole_prod_v9ae202d2a3724bc7e5c726b9bc639e7c3b332339.gz.css"/>
+
+<link type="text/css" rel="stylesheet" href="https://s3.cn-north-1.amazonaws.com.cn/cdn-prod/css/paymentsconsole_prod_v04f6e7d05055b55a4db9606da6b0d78de90e8fc3.gz.css"/>
+
+<link type="text/css" rel="stylesheet" href="https://s3.cn-north-1.amazonaws.com.cn/cdn-prod/css/paymentsconsole_prod_v9299831f98f514c0496544495fc75f8882f3a0a8.gz.css"/>
+
+        <!--[if lte IE 8]><link rel="stylesheet" type="text/css" href="/billing/console/src/css/checkbox.css" /><![endif]-->
+
+</head>
+<body>
+  <div id="b">
+    <div id="h">
+
+
+<div class="awsc-header-prefix"></div>
+<div id="consoleNavHeader"></div>
+
+</div>
+<div id="cc">
+  <div id="c">
+
+
+        <div id="awsbilling-top-notification"
+            class="aws-billing-topnotification"></div>
+        <div id="ng-app" ng-app="billingConsole" ng-csp>
+                <div ng-include="'/billing/console/src/app/app.html'"
+                    class="container-fluid"></div>
+        </div>
+        <div id="dialogUnderlay"></div>
+
+        <input type="hidden" id="xsrfToken" value="VFZYT00yM2xXblVBcWtIUklFcjczemE0eUx4dFBramRGRGY4T0ZlV2FZa3w5MjU0NDY1MjY3MTY3NzA5OTV8MXwyMDE3LTAzLTAyVDAyOjM0OjI2LjU3Nlo=" />
+        <input type="hidden" id="stack" value="CN" />
+        <input type="hidden" id="stage" value="Prod" />
+        <input type="hidden" id="region" value="cn-north-1" />
+        <input type="hidden" id="whitelisted" value="false" />
+        <input type="hidden" id="inFreeTierBlacklist" value="false" />
+        <input type="hidden" id="isBudgetNavBarOn" value="false" />
+        <input type="hidden" id="isBudgetSignupOn" value="false" />
+        <input type="hidden" id="isFreeTierSwitchOn" value="false" />
+        <input type="hidden" id="inReportPreferenceWhitelist" value="false" />
+        <input type="hidden" id="isReportPreferenceSwitchOn" value="false" />
+        <input type="hidden" id="inImprovedCostAllocationTagsWhitelist" value="false" />
+        <input type="hidden" id="isInBudgetCreationLimitWhilteList" value="false" />
+        <input type="hidden" id="isInLargeCustomerBlacklist" value="false" />
+        <input type="hidden" id="selectedLocale" value="zh" />
+        <input type="hidden" id="marketPlace" value="A2DKWNXIXV0AD" />
+        <input type="hidden" id="marketPlaceGroup" value="ACTS" />
+        <input type="hidden" id="govCloudConsoleUrl" value="https://signin.amazonaws-us-gov.com" />
+        <input type="hidden" id="govCloudSignUpUrl" value="https://signin.amazonaws.cn/signup?request_type=register" />
+        <input type="hidden" id="whitelistedDomains" value="aws.amazon.com,aws.amazon.cn" />
+        <input type="hidden" id="isBudgetServiceV2SwitchOn" value="false"/>
+        <input type="hidden" id="isCostsInsightsPreferenceServiceSwitchOn" value="false"/>
+        <input type="hidden" id="inSpendMapWhitelist" value="false" />
+        <input type="hidden" id="isInBudgetsV2Whitelist" value="false" />
+        <input type="hidden" id="isBudgetServiceV2ChartSwitchOn" value="false"/>
+        <input type="hidden" id="isInRatingsWhitelist" value="false" />
+        <input type="hidden" id="isOrganizationsSwitchOn" value="false"/>
+        <input type="hidden" id="isInOrganizationsWhitelist" value="false"/>
+        <input type="hidden" id="isPapyrusSwitchOn" value="false"/>
+        <input type="hidden" id="isAISPLCostExplorerSwitchOn" value="false"/>
+        <input type="hidden" id="isInAISPLCostExplorerWhitelist" value="false"/>
+        <input type="hidden" id="isICATSwitchOn" value="false"/>
+        <input type="hidden" id="isICATCreatedBySwitchOn" value="false"/>
+        <input type="hidden" id="isOrganizationsGASwitchOn" value="false"/>
+        <span class="hide" style="display:none;" id="thirdPartyResponse"></span>
+        <span class="hide" style="display:none;" id="freeTierUsageJson"></span>
+
+</div>
+</div>
+<div id="f">
+
+<div id="footer">
+</div>
+<div id="console-nav-footer">
+    <div id="footer-content">
+
+
+        <a id="terms-of-use" href="" target="_blank">使用条款</a>
+        <a id="privacy" href="" target="_blank">隐私策略</a>
+        <span id="copyright-notice">&copy; 2008 - 2017, <span id='awsc-marketplace-name'></span> 或其子公司。保留所有权利。</span>
+    </div>
+    <div id="awsc-language-selector-content"><a href='#' class='awsc-language awsc-supported-language' id='en'>English</a><span class='awsc-language awsc-current-language' id='zh'>中文(简体)</span></div>
+</div>
+<div class="awsc-footer-suffix"></div>
+
+</div>
+</div>
+
+<script type="text/javascript" src="https://s3.cn-north-1.amazonaws.com.cn/awsc-nav-assets-cn-north-1-prod/js/menu-2kjdfskljflksdfjk/globalnav-f4f13ddc25ba8ae8b900523dd22c97d0e7eb4add.gz.js" charset="utf-8"></script>
+<script type="text/javascript" src="https://s3.cn-north-1.amazonaws.com.cn/awsc-nav-assets-cn-north-1-prod/js/mezz-35gbnwov975sjdhcbsf/mezz-e103d5faaabe1ae0c60d839ce1a7d0d4f6820305.gz.js" charset="utf-8"></script>
+
+
+<script type="text/javascript" src="https://s3.cn-north-1.amazonaws.com.cn/cdn-prod/js/billingconsole_prod_v8c44ee9213fe8b922a6c570eb018ad466f573e8e.gz.js"></script>
+
+<script type="text/javascript" src="https://s3.cn-north-1.amazonaws.com.cn/cdn-prod/js/paymentsconsole_prod_v5f64d011605ed7830d736113e748e050f3899931.gz.js"></script>
+
+<script type="text/javascript" src="https://s3.cn-north-1.amazonaws.com.cn/cdn-prod/js/paymentsconsole_prod_v53221f4c7e26ccff782837bcef785e2abb5f7b4d.gz.js"></script>
+
+
+</body>
+</html>

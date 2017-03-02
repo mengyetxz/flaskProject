@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block page_content %}
+    <div class="sidebar">
+    {% block sidebar %}
+        <div class="ul-col">
+            <ul>
+                <li><a href="/addlist?qs=ProductCode">ProductCode</a></li>
+                <li><a href="/addlist?qs=ProductName">ProductName</a></li>
+                <li><a href="/addlist?qs=PayerAccountId">PayerAccountId</a></li>
+                <li><a href="/addlist?qs=LinkedAccountId">LinkedAccountId</a></li>
+            </ul>
+        </div>
+    {% endblock %}
+    </div>
+{% endblock %}

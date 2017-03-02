@@ -1,0 +1,11 @@
+body {
+    padding-bottom: 50px;
+}
+#echart-test-async {
+    width: 900px;
+    height: 400px;
+    display: inline-block;
+}
+.sidebar {
+    display: inline-block;
+}
