@@ -147,8 +147,7 @@ def table():
 
 @app.route('/export')
 def export_record():
-    return excel.make_response_from_array([[1,2], [3,4]], "csv",
-            file_name="./billing-data/export_csv.csv")
+    return excel.make_response_from_array([[1, 2], [3, 4]], "csv", file_name="./billing-data/export_csv.csv")
 
 
 #@app.route('data.csv')
