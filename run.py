@@ -12,6 +12,7 @@ import csv
 import os
 import flask_excel as excel
 from StringIO import StringIO
+from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'hard to guess string'
@@ -21,6 +22,23 @@ CSV_PATH = os.path.join(ROOT_DIR, 'billing-data')
 bootstrap = Bootstrap(app)
 
 moment = Moment(app)
+
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:////SqliteTest.db'
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
+db = SQLAlchemy(app)
+
+
+class User(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    username = db.Column(db.String(80), unique=True)
+    email = db.Column(db.String(120), unique=True)
+
+    def __init__(self, username, email):
+        self.username = username
+        self.email = email
+
+    def __repr__(self):
+        return '<User %r>' % self.username
 
 
 class NameForm(FlaskForm):
