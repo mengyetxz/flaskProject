@@ -4,7 +4,7 @@
 var myChart = echarts.init(document.getElementById('echart-test-static'));
 var option = {
     title: {
-        text: 'Echarts test static',
+        text: 'test static',
         subtext: 'Search group by: '
     },
     tooltip: {
@@ -19,7 +19,7 @@ var option = {
     xAxis: {
         name: 'AWS资源/服务名',
         type: 'category',
-        data: ["EC2", "S3", "RDS", "xxx", "yyy", "zzz"]
+        data: ["AmazonEC2", "AmazonS3", "AmazonCloudWatch", "AmazonSNS", "AmazonDynamoDB", "AWSDataTransfer"]
     },
     yAxis: {
         name: '费用（元）'
@@ -27,17 +27,17 @@ var option = {
     series: [
         {
             name: '费用',
-            type: 'line',
+            type: 'bar',
             data: [20, 20, 36, 10, 10, 20]
         },
         {
             name: 'tag1',
-            type: 'line',
+            type: 'bar',
             data: [10, 20, 15, 20, 12, 20]
         },
         {
             name: 'tag2',
-            type: 'line',
+            type: 'bar',
             data: [1, 2, 3, 4, 5, 6]
         }
     ]

@@ -1,0 +1,34 @@
+body {
+    padding-bottom: 50px;
+}
+
+.page-header {
+    padding-top: 10px;
+}
+
+.navbar {
+    position: fixed;
+    width: 100%;
+    z-index: 9999;
+}
+
+#echart-test-async {
+    width: 900px;
+    height: 400px;
+    display: inline-block;
+}
+
+.sidebar {
+    display: inline-block;
+}
+
+table {
+    border-collapse: collapse;
+    border: 2px black solid;
+    font: 12px sans-serif;
+}
+
+td {
+    border: 1px black solid;
+    padding: 5px;
+}

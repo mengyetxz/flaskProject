@@ -1,14 +1,17 @@
-from flask import Flask, render_template, redirect, session, url_for, flash
+from flask import Flask, render_template, redirect, \
+    session, url_for, flash, request, make_response, \
+    jsonify
 from flask_bootstrap import Bootstrap
 from flask_moment import Moment
 from datetime import datetime
 from flask_wtf import FlaskForm
 from wtforms import StringField, SubmitField
 from wtforms.validators import DataRequired
-from flask import request, make_response
 import json
 import csv
 import os
+import flask_excel as excel
+from StringIO import StringIO
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'hard to guess string'
@@ -123,13 +126,38 @@ def test_2():
 
 @app.route('/t')
 def t():
-    qs = 'ProductCode'
-    return make_response(url_for('test_0', qs=qs))
+    # qs = 'ProductCode'
+    #return make_response(url_for('test_0', qs=qs))
+    return render_template("test.html")
 
 
 @app.route('/table')
 def table():
     return render_template("table.html")
+
+
+#@app.route('/datacsv')
+#def data_csv():
+#    csv_dir = os.path.join(CSV_PATH, '412764460734-aws-cost-allocation-ACTS-2017-01.csv')
+#    f = open(csv_dir, 'r')
+#    response = f.readlines()
+#    f.close()
+#    return response
+
+
+@app.route('/export')
+def export_record():
+    return excel.make_response_from_array([[1,2], [3,4]], "csv",
+            file_name="./billing-data/export_csv.csv")
+
+
+#@app.route('data.csv')
+#def output_csv():
+#    output = StringIO()
+#    some_dataframe.to_csv(output)
+
+
+
 
 
 if __name__ == '__main__':

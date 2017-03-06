@@ -35,7 +35,7 @@ console.log(res[1]);
 
 var option = {
     title: {
-        text: 'ECharts test async'
+        text: 'test async'
     },
     tooltip: {
         trigger: 'axis',
@@ -82,7 +82,7 @@ var option = {
     series: [
         {
             name: '消费',
-            type: 'line',
+            type: 'bar',
             itemStyle: {
                 normal: {
                     opacity: 0.8
