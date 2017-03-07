@@ -1,30 +1,29 @@
+import csv
+import json
+import os
+from datetime import datetime
+
+import flask_excel as excel
 from flask import Flask, render_template, redirect, \
-    session, url_for, flash, request, make_response, \
-    jsonify
+    session, url_for, flash, request, make_response
 from flask_bootstrap import Bootstrap
 from flask_moment import Moment
-from datetime import datetime
+from flask_sqlalchemy import SQLAlchemy
 from flask_wtf import FlaskForm
 from wtforms import StringField, SubmitField
 from wtforms.validators import DataRequired
-import json
-import csv
-import os
-import flask_excel as excel
-from StringIO import StringIO
-from flask_sqlalchemy import SQLAlchemy
 
-app = Flask(__name__)
-app.config['SECRET_KEY'] = 'hard to guess string'
 ROOT_DIR = os.path.dirname(os.path.abspath(__file__))
+# ROOT_DIR = os.getcwd()  # same as above while cause an issue working on v
 CSV_PATH = os.path.join(ROOT_DIR, 'billing-data')
 
+INS_PATH = os.path.join(ROOT_DIR, 'instance')
+app = Flask(__name__, instance_path=INS_PATH, instance_relative_config=True)
+app.config.from_object('config')
+app.config.from_pyfile('config.py')  # issue
+
 bootstrap = Bootstrap(app)
-
 moment = Moment(app)
-
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:////SqliteTest.db'
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
 db = SQLAlchemy(app)
 
 
@@ -49,16 +48,6 @@ class NameForm(FlaskForm):
 class QsForm(FlaskForm):
     qs = StringField('Please input query string:', validators=[DataRequired()])
     submit = SubmitField('Submit')
-
-
-@app.errorhandler(404)
-def page_not_found(e):
-    return render_template('404.html'), 404
-
-
-@app.errorhandler(500)
-def internal_server_error(e):
-    return render_template('500.html'), 500
 
 
 @app.route('/', methods=['GET'])
@@ -142,13 +131,6 @@ def test_2():
     return render_template('addlist.html', form=form, qs=request.args.get('qs'))
 
 
-@app.route('/t')
-def t():
-    # qs = 'ProductCode'
-    #return make_response(url_for('test_0', qs=qs))
-    return render_template("test.html")
-
-
 @app.route('/table')
 def table():
     return render_template("table.html")
@@ -174,8 +156,26 @@ def export_record():
 #    some_dataframe.to_csv(output)
 
 
+from views.errorPages import error
+app.register_blueprint(error, url_prefix='/error')
 
+from views.testPages import test
+app.register_blueprint(test, url_prefix='/test')
+
+# login test
+from views.login import login
+app.register_blueprint(login, url_prefix='/login')
+
+from flask_login import LoginManager
+loginManager = LoginManager()
+loginManager.init_app(app)
+loginManager.login_view = 'signin'
+
+
+@loginManager.user_loader
+def load_user(userid):
+    return User.query.filter(User.id == userid).first()
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run()
