@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask
 from flask_bootstrap import Bootstrap
 from flask_moment import Moment
 from flask_sqlalchemy import SQLAlchemy
@@ -32,16 +32,6 @@ app.register_blueprint(test, url_prefix='/test')
 # Blueprint login test
 from views.login import login
 app.register_blueprint(login, url_prefix='/login')
-
-from flask_login import LoginManager
-loginManager = LoginManager()
-loginManager.init_app(app)
-loginManager.login_view = 'signin'
-
-
-@loginManager.user_loader
-def load_user(userid):
-    return User.query.filter(User.id == userid).first()
 
 
 if __name__ == '__main__':

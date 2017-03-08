@@ -3,10 +3,11 @@
 # Creaded on 2017/3/7
 """__DOC__"""
 
+from datetime import datetime
 from flask import Blueprint, render_template
 import flask_excel as excel
 
-test = Blueprint('test', __name__, template_folder='../templates')
+test = Blueprint('test', __name__)
 
 
 @test.route('/')
