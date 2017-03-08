@@ -9,7 +9,7 @@ $(document).ready(function() {
         var xdata= [], ydata= [];
         $.ajax(
             {
-                url: '/test_0',
+                url: '/echarts-test/getdata',
                 data: {qs: qs},
                 async: false,
                 success: function(data) {

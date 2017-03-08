@@ -5,8 +5,7 @@
 
 from flask import Blueprint, render_template, redirect, url_for
 login = Blueprint('login', __name__)
-from flask_login import login_user
-from forms.emailPassword import EmailPasswordForm
+from ..forms.forms import EmailPasswordForm
 
 
 @login.route('/', methods=['GET', 'POST'])

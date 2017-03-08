@@ -3,7 +3,8 @@
 # Creaded on 2017/3/7
 """__DOC__"""
 
-import os
+from demoapplication import app
+
 
 if __name__ == '__main__':
-    pass
+    app.run()
