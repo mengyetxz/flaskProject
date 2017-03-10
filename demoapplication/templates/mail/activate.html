@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block page_content %}
+<p>你的账户已经成功创建，<br>请点击打开以下链接来激活你的邮箱：</p>
+
+<p>
+<a href="{{ confirm_url }}">{{ confirm_url }}</a>
+</p>
+
+<p>
+--<br>
+如果对本邮件有疑问或者有话想说，发邮件给hello@myapp.com.
+</p>
+{% endblock %}

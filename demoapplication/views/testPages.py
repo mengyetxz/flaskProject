@@ -14,7 +14,7 @@ test = Blueprint('test', __name__)
 def test_page():
     # qs = 'ProductCode'
     #return make_response(url_for('test_0', qs=qs))
-    return render_template("index.html")
+    return render_template("testPages/test.html")
 
 
 @test.route('/user/<name>')

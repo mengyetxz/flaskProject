@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="DataSourceManagerImpl" format="xml" hash="1607699653">
-    <data-source source="LOCAL" name="SqliteTest" uuid="2eb4e453-e8f1-438e-9782-0d08b747985e">
+  <component name="DataSourceManagerImpl" format="xml" hash="986295326">
+    <data-source source="LOCAL" name="Sqlite (Xerial) - SqliteTest.db" uuid="05395796-2350-4e63-8199-f5c4b67835a9">
       <driver-ref>sqlite.xerial</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
-      <jdbc-url>jdbc:sqlite:$PROJECT_DIR$/../flaskProject\SqliteTest</jdbc-url>
+      <jdbc-url>jdbc:sqlite:$PROJECT_DIR$/../flaskProject\SqliteTest.db</jdbc-url>
     </data-source>
   </component>
 </project>
