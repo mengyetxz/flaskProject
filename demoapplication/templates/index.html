@@ -5,5 +5,10 @@
 {% endblock %}
 
 {% block page_content %}
-    <p>page_content</p>
+    Hello,
+    {% if current_user.is_authenticated %}
+        {{ current_user.username }}
+    {% else %}
+        Stranger
+    {% endif %}
 {% endblock %}

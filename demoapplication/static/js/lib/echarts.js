@@ -1438,7 +1438,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	            chart.dispose(ecModel, api);
 	        });
 
-	        // Dispose after all views disposed
+	        // Dispose after all home disposed
 	        this._zr.dispose();
 
 	        delete instances[this.id];
@@ -51289,7 +51289,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	            }
 	            else {
 	                // Only one graphic instance can be instantiated. (We dont
-	                // want that too many views are created in echarts._viewMap)
+	                // want that too many home are created in echarts._viewMap)
 	                option.graphic = [option.graphic[0]];
 	            }
 	        }

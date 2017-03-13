@@ -3,19 +3,20 @@
 # Creaded on 2017/3/8
 """__DOC__"""
 
-import os
 import csv
 import json
-from flask import Blueprint, render_template, redirect, url_for,\
+import os
+
+from flask import render_template, redirect, url_for,\
     request, make_response, session
-from ..forms.forms import QsForm
+
+from demoapplication.home.forms import QsForm
+from . import dashboard as dash
 from ..path import CSV_PATH
 
-echartsTest = Blueprint('echartsTest', __name__)
 
-
-@echartsTest.route('/getdata', methods=['GET'])
-def get_data():
+@dash.route('/get_billing_data', methods=['GET'])
+def get_billing_data():
     data = dict()
 
     csv_dir = os.path.join(CSV_PATH, '412764460734-aws-cost-allocation-ACTS-2017-01.csv')
@@ -46,31 +47,29 @@ def get_data():
     return response
 
 
-# BuildError: Could not build url for endpoint 'test_1'.
-# Did you mean 'echartsTest.test_1' instead?
-@echartsTest.route('/', methods=['GET', 'POST'])
-def test_1():
+@dash.route('/render_chart', methods=['GET', 'POST'])
+def render_chart():
     form = QsForm()
     if form.validate_on_submit():
         session['qs'] = form.qs.data
         form.qs.data = ''
-        return redirect(url_for('echartsTest.test_1'))
-    return render_template('echarts-test.html', form=form, qs=session.get('qs'))
+        return redirect(url_for('.render_chart'))
+    return render_template('dashboard/echarts.html', form=form, qs=session.get('qs'))
 
 
-@echartsTest.route('/addlist', methods=['GET', 'POST'])
-def test_2():
+@dash.route('/render_chart/addlist', methods=['GET', 'POST'])
+def add_list():
     form = QsForm()
     if form.validate_on_submit():
         session['qs'] = form.qs.data
         form.qs.data = ''
-        return redirect(url_for('test_2'))
-    return render_template('addlist.html', form=form, qs=request.args.get('qs'))
+        return redirect(url_for('.add_list'))
+    return render_template('dashboard/addlist.html', form=form, qs=request.args.get('qs'))
 
 
-@echartsTest.route('/table')
+@dash.route('/table')
 def table():
-    return render_template("table.html")
+    return render_template("dashboard/table.html")
 
 
 if __name__ == '__main__':

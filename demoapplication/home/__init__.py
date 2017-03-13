@@ -3,8 +3,11 @@
 # Creaded on 2017/3/7
 """__DOC__"""
 
-from demoapplication import app
+from flask import Blueprint
 
+home = Blueprint('home', __name__)
+
+from . import views
 
 if __name__ == '__main__':
-    app.run()
+    pass

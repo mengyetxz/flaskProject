@@ -4,30 +4,29 @@
 """__DOC__"""
 
 from datetime import datetime
-from flask import Blueprint, render_template
+from flask import render_template
 import flask_excel as excel
+from . import home
 
-test = Blueprint('test', __name__)
 
-
-@test.route('/')
+@home.route('/test')
 def test_page():
     # qs = 'ProductCode'
     #return make_response(url_for('test_0', qs=qs))
     return render_template("testPages/test.html")
 
 
-@test.route('/user/<name>')
+@home.route('/test/user/<name>')
 def user(name):
     return render_template('user.html', name=name, current_time=datetime.utcnow())
 
 
-@test.route('/bootstrap/<name>')
+@home.route('/test/bootstrap/<name>')
 def boot(name):
     return render_template('bootstrap.html', name=name)
 
 
-@test.route('/export')
+@home.route('/test/export')
 def export_record():
     return excel.make_response_from_array([[1, 2], [3, 4]], "csv", file_name="./billing-data/export_csv.csv")
 
