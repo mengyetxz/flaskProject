@@ -7,7 +7,7 @@ from flask import Blueprint
 
 dashboard = Blueprint('dashboard', __name__)
 
-import views
+from . import views
 
 if __name__ == '__main__':
     pass

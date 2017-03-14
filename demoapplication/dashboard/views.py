@@ -9,9 +9,8 @@ import os
 
 from flask import render_template, redirect, url_for,\
     request, make_response, session
-
-from demoapplication.home.forms import QsForm
 from . import dashboard as dash
+from .forms import QsForm
 from ..path import CSV_PATH
 
 

@@ -9,7 +9,7 @@ $(document).ready(function() {
         var xdata= [], ydata= [];
         $.ajax(
             {
-                url: '/echarts-test/getdata',
+                url: '/dash/get_billing_data',
                 data: {qs: qs},
                 async: false,
                 success: function(data) {
