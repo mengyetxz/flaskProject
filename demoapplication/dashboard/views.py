@@ -63,7 +63,8 @@ def add_list():
         session['qs'] = form.qs.data
         form.qs.data = ''
         return redirect(url_for('.add_list'))
-    return render_template('dashboard/addlist.html', form=form, qs=request.args.get('qs'))
+    return render_template('dashboard/addlist.html', form=form,
+                           qs=request.args.get('qs') or session.get('qs'))
 
 
 @dash.route('/table')

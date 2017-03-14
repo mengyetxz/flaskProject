@@ -5,10 +5,10 @@
     {% block sidebar %}
         <div class="ul-col">
             <ul>
-                <li><a href="/addlist?qs=ProductCode">ProductCode</a></li>
-                <li><a href="/addlist?qs=ProductName">ProductName</a></li>
-                <li><a href="/addlist?qs=PayerAccountId">PayerAccountId</a></li>
-                <li><a href="/addlist?qs=LinkedAccountId">LinkedAccountId</a></li>
+                <li><a href="{{ url_for('dashboard.add_list', qs='ProductCode') }}">ProductCode</a></li>
+                <li><a href="{{ url_for('dashboard.add_list', qs='ProductName') }}">ProductName</a></li>
+                <li><a href="{{ url_for('dashboard.add_list', qs='PayerAccountId') }}">PayerAccountId</a></li>
+                <li><a href="{{ url_for('dashboard.add_list', qs='LinkedAccountId') }}">LinkedAccountId</a></li>
             </ul>
         </div>
     {% endblock %}

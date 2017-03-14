@@ -9,6 +9,16 @@
     {% if current_user.is_authenticated %}
         {{ current_user.username }}
     {% else %}
-        Stranger
+        Stranger, url_map is:
     {% endif %}
+    <br>
+    <div class="ul-col">
+        <ul>
+            <li><a href="{{ url_for('dashboard.table') }}">dashboard.table</a></li>
+            <li><a href="{{ url_for('dashboard.get_billing_data', qs='ProductCode') }}">
+                dashboard.get_billing_data, qs=ProductCode</a></li>
+            <li><a href="{{ url_for('dashboard.render_chart') }}">dashboard.render_chart</a></li>
+            <li><a href="{{ url_for('dashboard.add_list') }}">dashboard.add_list</a></li>
+        </ul>
+    </div>
 {% endblock %}
