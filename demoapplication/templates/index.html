@@ -9,16 +9,30 @@
     {% if current_user.is_authenticated %}
         {{ current_user.username }}
     {% else %}
-        Stranger, url_map is:
+        Stranger
     {% endif %}
+    , url_map is:
     <br>
     <div class="ul-col">
         <ul>
+            <br>
+            <li>CSV表格：</li>
             <li><a href="{{ url_for('dashboard.table') }}">dashboard.table</a></li>
+            <br>
+            <li>总账户账单：</li>
             <li><a href="{{ url_for('dashboard.get_billing_data', qs='ProductCode') }}">
                 dashboard.get_billing_data, qs=ProductCode</a></li>
             <li><a href="{{ url_for('dashboard.render_chart') }}">dashboard.render_chart</a></li>
             <li><a href="{{ url_for('dashboard.add_list') }}">dashboard.add_list</a></li>
+            <br>
+            <li>关联账户账单：</li>
+            <li><a href="{{ url_for('dashboard.get_linked_account_billing',
+                qs='ProductCode',account_id='425155429375') }}">
+                dashboard.get_linked_account_billing ,, qs='ProductCode' ,account_id=425155429375</a> </li>
+            <li><a href="{{ url_for('dashboard.render_chart_linked_account') }}">
+                dashboard.render_chart_linked_account</a> </li>
+            <br>
+
         </ul>
     </div>
 {% endblock %}

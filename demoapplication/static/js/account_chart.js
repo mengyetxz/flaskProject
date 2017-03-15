@@ -1,16 +1,16 @@
 /**
- * Created by mengy on 2017/2/23.
+ * Created by mengy on 2017/3/14.
  */
-
 console.log(qs);
+console.log(account_id);
 
 $(document).ready(function() {
     function getdata() {
         var xdata= [], ydata= [];
         $.ajax(
             {
-                url: '/dash/get_billing_data',
-                data: {qs: qs},
+                url: '/dash/get_linked_account_billing',
+                data: {qs: qs, account_id: account_id},
                 async: false,
                 success: function(data) {
                     console.log(data);
@@ -27,7 +27,7 @@ $(document).ready(function() {
     }
 
 
-    var myChart = echarts.init(document.getElementById('echart-test-async'));
+    var myChart = echarts.init(document.getElementById('echart-account-async'));
     myChart.showLoading();
     var res = getdata();
     console.log(res[0]);
@@ -35,7 +35,9 @@ $(document).ready(function() {
 
     var option = {
         title: {
-            text: "Billing, qs = " + qs
+            text: 'linked account: ' + account_id,
+            top: 'top',
+            left: 'left'
         },
         tooltip: {
             trigger: 'axis',
@@ -98,71 +100,3 @@ $(document).ready(function() {
     myChart.setOption(option);
 
 });
-
-
-/*
-var myChart_async = echarts.init(document.getElementById('echart-test-async'));
-// 显示标题，图例和空的坐标轴
-myChart_async.setOption({
-    title: {
-        text: '异步数据加载示例'
-    },
-    tooltip: {},
-    legend: {
-        data:['销量']
-    },
-    xAxis: {
-        data: []
-    },
-    yAxis: {},
-    series: [{
-        name: '销量',
-        type: 'bar',
-        data: []
-    }]
-});
-
-// 异步加载数据
-$.get({
-    url: '/test_0',
-    data: {qs: qs}
-}).done(function (data) {
-    // 填入数据
-    console.log(data);
-    myChart_async.setOption({
-        xAxis: {
-            data: data.categories
-        },
-        series: [{
-            // 根据名字对应到相应的系列
-            name: '销量',
-            data: data.data
-        }]
-    });
-});
-*/
-
-/*
-var myChart_async = echarts.init(document.getElementById('echart-test-async'));
-
-$.get().done(function () {
-    myChart_async.setOption({
-        title: {
-            text: 'Echarts-test-async'
-        },
-        tooltip: {},
-        legend: {
-            data:['费用']
-        },
-        xAxis: {
-            data: ["EC2", "S3", "RDS", "xx", "yy", "zz"]
-        },
-        yAxis: {},
-        series: [{
-            name: '费用',
-            type: 'bar',
-            data: [5, 5, 5, 5, 5, 5]
-        }]
-    });
-});
-*/

@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block page_header%}
+    <h1>Billing charts - linked account</h1>
+{% endblock %}
+
+{% block scripts %}
+    {{ super() }}
+    <!--
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/3.4.0/echarts.js"></script>
+    -->
+    <script src="../../static/js/lib/echarts.js"></script>
+    <script type="text/javascript">
+        var qs='{{ qs }}';
+        var account_id='{{ account_id }}';
+    </script>
+    <script src="../../static/js/account_chart.js"></script>
+{% endblock %}
+
+{% block page_content %}
+    <br>
+    <div id="echart-account-async" style="width: 100%;height: 400px;"></div>
+{% endblock %}
