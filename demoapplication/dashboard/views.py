@@ -8,7 +8,7 @@ import json
 import os
 
 from flask import render_template, redirect, url_for,\
-    request, make_response, session
+    request, make_response, session, jsonify
 from . import dashboard as dash
 from .forms import QsForm
 from ..path import CSV_PATH
@@ -45,10 +45,10 @@ def get_billing_data():
                 else:
                     data[row[qs_index]] = float(row[total_cost_index])
 
-    response = make_response(json.dumps(data))
-    response.content_type = 'application/json'
+    # response = make_response(json.dumps(data))
+    # response.content_type = 'application/json'
 
-    return response
+    return jsonify(data)
 
 
 @dash.route('/render_chart', methods=['GET', 'POST'])

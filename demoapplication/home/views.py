@@ -15,6 +15,11 @@ from . import home
 def index():
     return render_template('index.html')
 
+
+@home.route('/test')
+def test():
+    return render_template('silder-menu.html')
+
 # @home.route('/', methods=['GET'])
 # def index():
 #     form = NameForm()
