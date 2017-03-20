@@ -1,0 +1,26 @@
+{% extends "slide-menu.html" %}
+
+{% block styles %}
+    {{ super() }}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/tab-bar.css') }}" type="text/css">
+{% endblock %}
+
+{% block tab_bar %}
+    <!-- tab-bar -->
+    <div class="tab-bar demo">
+        <h2 class="tab">Dribbble</h2>
+        <p>test</p>
+        <h2 class="tab active">Behance</h2>
+        <p></p>
+        <h2 class="tab">Pinterest</h2>
+        <p></p>
+
+        <!-- The AniJS definition -->
+        <input type="hidden"
+               data-anijs="if: mouseover, on: .tab, do: $removeClass active, to: .tab.active;
+               if: mouseover, on: .tab, do: $addClass active, to: target">
+        <!-- end AniJS definition -->
+
+    </div>
+    <!-- End tab-bar -->
+{% endblock %}

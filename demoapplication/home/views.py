@@ -13,12 +13,12 @@ from . import home
 
 @home.route('/')
 def index():
-    return render_template('index.html')
+    return render_template('slide-menu.html')
 
 
 @home.route('/test')
 def test():
-    return render_template('silder-menu.html')
+    return render_template('tab-bar.html')
 
 # @home.route('/', methods=['GET'])
 # def index():

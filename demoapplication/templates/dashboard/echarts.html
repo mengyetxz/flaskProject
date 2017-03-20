@@ -5,6 +5,14 @@
     <h1>Billing charts</h1>
 {% endblock %}
 
+{% block page_content %}
+    {{ wtf.quick_form(form) }}
+    <br>
+    <div id="echart-test-static" style="width: 100%;height: 400px;"></div>
+    <br>
+    <div id="echart-test-async" style="width: 100%;height: 400px;"></div>
+{% endblock %}
+
 {% block scripts %}
     {{ super() }}
     <!--
@@ -17,12 +25,4 @@
 
     <script src="../../static/js/async_chart.js"></script>
 
-{% endblock %}
-
-{% block page_content %}
-    {{ wtf.quick_form(form) }}
-    <br>
-    <div id="echart-test-static" style="width: 100%;height: 400px;"></div>
-    <br>
-    <div id="echart-test-async" style="width: 100%;height: 400px;"></div>
 {% endblock %}

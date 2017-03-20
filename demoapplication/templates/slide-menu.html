@@ -1,0 +1,74 @@
+{% extends "base.html" %}
+
+{% block styles %}
+    {{ super() }}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/slide-menu.css') }}" type="text/css">
+    <link rel="stylesheet" href="http://anijs.github.io/lib/anicollection/anicollection.css" />
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <div class="silder-menu-container">
+            {% block silder_menu %}
+            <!-- Navigation -->
+            <nav id="slide-menu">
+                <ul>
+                    <li class="timeline">
+                        <i class="fa fa-bar-chart"></i>
+                        <span>Timeline</span>
+                    </li>
+                    <li class="events">
+                        <i class="fa fa-flag"></i>
+                        <span>Events</span>
+                    </li>
+                    <li class="calendar">
+                        <i class="fa fa-calendar-o"></i>
+                        <span>Calendar</span>
+                    </li>
+                    <li class="sep settings">
+                        <i class="fa fa-gear"></i>
+                        <span>Settings</span>
+                    </li>
+                    <li class="logout">
+                        <i class="fa fa-close"></i>
+                        <span>Logout</span>
+                    </li>
+                </ul>
+            </nav>
+            <!-- Content panel -->
+            <div id="content">
+                <div class="menu-trigger" data-anijs="if: click, do: $toggleClass menu-active, to: .container">
+                    <i class="fa fa-bars"></i>
+                </div>
+                {% for message in get_flashed_messages() %}
+                <div class="alert alert-warning">
+                    <button type="button" class="close" data-dismiss="alert">×</button>
+                    {{ message }}
+                </div>
+                {% endfor %}
+
+                <div class="page-header animated bounce">
+                    {% block page_header %}{% endblock %}
+                </div>
+                <div class="page-content">
+                    {% block page_content %}
+                    <div class="tab-container center">
+                        {% block tab_bar %}{% endblock %}
+                    </div>
+
+                    {% endblock %}
+                </div>
+            </div>
+            {% endblock %}
+        </div>
+
+    </div>
+
+
+{% endblock %}
+
+{% block scripts %}
+    {{ super() }}
+    <script src="http://anijs.github.io/lib/anijs/anijs.js"></script>
+    <script src="http://anijs.github.io/lib/anijs/helpers/dom/anijs-helper-dom.js"></script>
+{% endblock %}

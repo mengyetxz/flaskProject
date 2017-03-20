@@ -9,10 +9,10 @@ body {
   font: 18px/27px 'Helvetic', sans-serif;
 }
 
-h1, h2, h3 {
-  color: #FF6B6B;
-  margin: 0 0 27px;
-}
+/*h1, h2, h3 {*/
+  /*color: #FF6B6B;*/
+  /*margin: 0 0 27px;*/
+/*}*/
 
 /*
   Menu
@@ -177,7 +177,7 @@ body{
   width: 40%;
 }
 
-body.div.container{
+.silder-menu-container{
    margin-top: 50px;
    width: 50%;
 }
