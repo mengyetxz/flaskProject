@@ -8,14 +8,15 @@
 
 {% block content %}
     <div class="container">
-        <div class="silder-menu-container">
+        <div class="slide-menu-container">
             {% block silder_menu %}
             <!-- Navigation -->
             <nav id="slide-menu">
                 <ul>
                     <li class="timeline">
                         <i class="fa fa-bar-chart"></i>
-                        <span>Timeline</span>
+                        <span><a href="{{ url_for('home.test') }}">home.test</a></span>
+
                     </li>
                     <li class="events">
                         <i class="fa fa-flag"></i>

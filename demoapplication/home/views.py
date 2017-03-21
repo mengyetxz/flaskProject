@@ -13,7 +13,7 @@ from . import home
 
 @home.route('/')
 def index():
-    return render_template('slide-menu.html')
+    return render_template('index.html')
 
 
 @home.route('/test')

@@ -8,12 +8,14 @@
 {% block tab_bar %}
     <!-- tab-bar -->
     <div class="tab-bar demo">
+        {% block tab %}
         <h2 class="tab">Dribbble</h2>
         <p>test</p>
         <h2 class="tab active">Behance</h2>
         <p></p>
         <h2 class="tab">Pinterest</h2>
         <p></p>
+        {% endblock %}
 
         <!-- The AniJS definition -->
         <input type="hidden"
