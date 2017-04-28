@@ -1,7 +1,9 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 # Creaded on 2017/3/8
-"""__DOC__"""
+"""
+渲染图表
+"""
 
 import csv
 import json
@@ -14,11 +16,13 @@ from .forms import QsForm
 from ..path import CSV_PATH
 
 
+# 显示完整的CSV表格到网页
 @dash.route('/table')
 def table():
     return render_template("dashboard/table.html")
 
 
+# 显示获取的Json格式数据，用来渲染图表
 @dash.route('/get_billing_data', methods=['GET'])
 def get_billing_data():
     data = dict()
@@ -61,6 +65,7 @@ def render_chart():
     return render_template('dashboard/echarts.html', form=form, qs=session.get('qs'))
 
 
+# 为渲染的图表添加了一个列表，用来快速切换按qs分类的图表
 @dash.route('/render_chart/addlist', methods=['GET', 'POST'])
 def add_list():
     form = QsForm()

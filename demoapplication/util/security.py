@@ -1,7 +1,9 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 # Creaded on 2017/3/8
-"""__DOC__"""
+"""
+测试，无实际使用
+"""
 
 # from itsdangerous import URLSafeTimedSerializer
 # from .. import mail

@@ -1,7 +1,10 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 # Creaded on 2017/3/13
-"""__DOC__"""
+"""
+提供用户认证需要的表单数据
+表单包括：注册、登陆、修改密码、密码重置、修改邮箱
+"""
 
 from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField, BooleanField, SubmitField

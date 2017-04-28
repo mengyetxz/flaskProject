@@ -1,7 +1,10 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 # Creaded on 2017/3/7
-"""__DOC__"""
+"""
+> python manager.py shell 进入设置好的context的shell环境
+> python manager.py db 用来数据库迁移
+"""
 
 import os
 from demoapplication import create_app, db
@@ -14,6 +17,7 @@ manager = Manager(app)
 migrate = Migrate(app, db)
 
 
+# manager 命令
 def make_shell_context():
     return dict(app=app, db=db, User=User, Role=Role)
 manager.add_command("shell", Shell(make_context=make_shell_context))

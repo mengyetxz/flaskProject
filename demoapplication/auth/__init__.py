@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 # Creaded on 2017/3/13
-"""__DOC__"""
+"""注册用户认证模块的蓝图"""
 
 from flask import Blueprint
 

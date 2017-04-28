@@ -1,7 +1,9 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 # Creaded on 2017/3/13
-"""__DOC__"""
+"""
+为auth模块提供发送验证右键的功能
+"""
 
 from threading import Thread
 from flask import current_app, render_template

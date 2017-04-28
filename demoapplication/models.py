@@ -1,7 +1,11 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 # Creaded on 2017/3/7
-"""__DOC__"""
+"""
+数据模块，用来建立数据模型
+表：角色、用户
+其中对用户表中的密码字段先做哈希转换再存入数据库
+"""
 
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import UserMixin
