@@ -5,7 +5,7 @@
 #### 使用方法
 ```bash
 $ pip install -r requirements-dev.txt
-$ python manage.py runserver
+$ python manage.py runserver -h=0.0.0.0 -p=5000
 # 默认 127.0.0.1:5000
 ```
 
